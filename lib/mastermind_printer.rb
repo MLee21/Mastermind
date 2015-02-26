@@ -59,7 +59,8 @@ module MasterMindPrinter
 
   def self.user_quit
     puts "Goodbye"
-  end                 
+  end   
+              
 
 end
 
