@@ -28,27 +28,45 @@ class MasterMindPrinterTest < Minitest::Test
   end        
 
   def test_it_tells_user_if_guesses_too_short_of_characters
-
+    fake_stdout = StringIO.new              
+    MasterMindPrinter.file = $stdout            
+    MasterMindPrinter.user_guesses_too_short
+    assert fake_stdout.string.kind_of?(String)
   end
 
   def test_it_tells_user_if_guesses_too_long_of_characters
-
+    fake_stdout = StringIO.new              
+    MasterMindPrinter.file = $stdout            
+    MasterMindPrinter.user_guesses_too_long
+    assert fake_stdout.string.kind_of?(String)
   end
 
   def test_it_will_tell_user_if_a_few_elements_are_correct
-
+    fake_stdout = StringIO.new              
+    MasterMindPrinter.file = $stdout            
+    MasterMindPrinter.user_has_a_few_elements_correct
+    assert fake_stdout.string.kind_of?(String)
   end
 
   def test_it_will_give_game_instructions
-
+    fake_stdout = StringIO.new              
+    MasterMindPrinter.file = $stdout            
+    MasterMindPrinter.instructions
+    assert fake_stdout.string.kind_of?(String)
   end
 
   def test_it_has_a_different_message_to_return_to_menu
-
+    fake_stdout = StringIO.new              
+    MasterMindPrinter.file = $stdout            
+    MasterMindPrinter.user_return_to_main_menu
+    assert fake_stdout.string.kind_of?(String)
   end
 
   def test_it_has_a_quitting_message
-
+    fake_stdout = StringIO.new              
+    MasterMindPrinter.file = $stdout            
+    MasterMindPrinter.user_quit
+    assert fake_stdout.string.kind_of?(String)
   end
 
 end 
