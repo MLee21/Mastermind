@@ -9,7 +9,13 @@ module MasterMindPrinter
   end                    
 
   def self.greeting
-    puts "Welcome to MASTERMIND!"
+    puts "WELCOME TO
+
+• ▌ ▄ ·.  ▄▄▄· .▄▄ · ▄▄▄▄▄▄▄▄ .▄▄▄  • ▌ ▄ ·. ▪   ▐ ▄ ·▄▄▄▄  
+·██ ▐███▪▐█ ▀█ ▐█ ▀. •██  ▀▄.▀·▀▄ █··██ ▐███▪██ •█▌▐███▪ ██ 
+▐█ ▌▐▌▐█·▄█▀▀█ ▄▀▀▀█▄ ▐█.▪▐▀▀▪▄▐▀▀▄ ▐█ ▌▐▌▐█·▐█·▐█▐▐▌▐█· ▐█▌
+██ ██▌▐█▌▐█ ▪▐▌▐█▄▪▐█ ▐█▌·▐█▄▄▌▐█•█▌██ ██▌▐█▌▐█▌██▐█▌██. ██ 
+▀▀  █▪▀▀▀ ▀  ▀  ▀▀▀▀  ▀▀▀  ▀▀▀ .▀  ▀▀▀  █▪▀▀▀▀▀▀▀▀ █▪▀▀▀▀▀•"
   end                             
 
   def self.menu
@@ -18,13 +24,13 @@ module MasterMindPrinter
 
    def self.user_picks_p
     puts "I have generated a beginner sequence with four elements
-    made up of: (r)ed, (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time
+    made up of: (r)ed, (g)reen, (b)lue, and (y)ellow. \n Use (q)uit at any time
     to end the game. What's your guess?"
   end                                    
 
   def self.user_guesses_correctly
-    puts "Congratulations! You guess the sequence #{correct_sequence} 
-    in #{user_guess.count} guesses over #{elapsed_time}."
+    puts "Congratulations! You guess the sequence correct_sequence 
+    in user_guess.count guesses over elapsed_time."
   end                                                      
 
   def self.user_guesses_too_short
@@ -36,9 +42,9 @@ module MasterMindPrinter
   end                             
 
   def self.user_has_a_few_elements_correct
-    puts "#{user_guess} has #{correct_element_guess.count} elements
-    with #{correct_position_guess.count} positions. You've
-    taken #{guess.count} guess."
+    puts "user_guess has correct_element_guess.count elements
+    with correct_position_guess.count positions. You've
+    taken guess.count guess."
   end                                                                                                                             
   #clean this up
   def self.instructions
@@ -52,10 +58,10 @@ module MasterMindPrinter
   end                                                              # => nil
 
   def self.user_quit
-    puts "Goodbye!"
+    puts "Goodbye"
   end                 
 
-
+end
 
 
 
