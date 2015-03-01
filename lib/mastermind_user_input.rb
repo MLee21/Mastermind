@@ -61,29 +61,34 @@ class MasterMindUserInput
     @time.start_time
     print "> "
     while !@correct
-      game_flow_correct_colors_and_positions
-      #end_game_flow
       @correct = true
+      game_flow_correct_colors
+      #end_game_flow
     end
   end
 
-    #transition
-    # break_down_for_count = user_guess.chars
-    # a,b,c,d = break_down_for_count
-    # iterate
-    # compare guess to secret sequenc
-  def game_flow_correct_colors_and_positions
+  def game_flow_correct_colors
+    # results = []
     secret_chars = @game.colors_to_guess.chars
-    @user_guess.chars.each do |letter|
-      secret_chars.include?(letter)
-      @game.counts[letter] += 1
+    user_guess_chars = @user_guess.chars
+    user_guess_chars.each do |letter|
+      if secret_chars.include?(letter)
+        @game.counts[letter] += 1
+      end
     end
       puts @game.counts 
+      # @game.counts.each_value {|v| results << v} 
+      # puts results 
+      # @game.total_counts = results.reduce(:+)
+      # puts "#{@user_guess} has #{@game.counts} elements
+      # with BLANK positions. You've
+      # taken #{@game.user_guesses} guess."
+      # MasterMindPrinter.user_has_a_few_elements_correct
   end
 
-  def calculate_correct_colors_and_positions
-    
-  end 
+  def game_flow_correct_positions
+
+  end
 
   def end_game_flow
 
