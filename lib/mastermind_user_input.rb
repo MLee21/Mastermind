@@ -51,27 +51,35 @@ class MasterMindUserInput
         MasterMindPrinter.user_guesses_too_short
       elsif @user_guess.length > 4
         MasterMindPrinter.user_guesses_too_long
-      elsif @user_guess.length == 4 
-        user_starts_guessing  
+      elsif (@user_guess.length == 4) && !correct? 
+        @game.start_time
+        game_flow_correct_colors
+        game_flow_correct_positions
+        @game.user_guesses += 1
+        user_has_a_few_elements_correct 
+      else correct?
+        end_game_flow
         break
       end
     end
   end
 
   # game_flow_transition_some_correct_guesses
-  def user_starts_guessing
-    print "> "
-      if !correct? 
-        @user.guess.each
-        @game.start_time
-        game_flow_correct_colors
-        game_flow_correct_positions 
-        @game.user_guesses += 1 
-        user_has_a_few_elements_correct
-      else correct?
-        end_game_flow
-      end
-  end
+#   def user_starts_guessing
+#     print "> "
+#     if !correct? 
+#       @user_guess.split.each do |word|
+#         @game.start_time
+#         game_flow_correct_colors
+#         game_flow_correct_positions 
+#         @game.user_guesses += 1 
+#         user_has_a_few_elements_correct
+#       if correct?
+#         end_game_flow
+#       end
+#     end
+#   end
+# end
 
   def game_flow_correct_colors
     results = []
