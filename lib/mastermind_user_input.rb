@@ -10,7 +10,6 @@ class MasterMindUserInput
 
   def initialize
     @game = MasterMindGame.new 
-    @time = GuessingTimer.new
     @user_guess = user_guess
     @continue = false
   end
@@ -58,7 +57,7 @@ class MasterMindUserInput
   # game_flow_transition_some_correct_guesses
   def user_starts_guessing
     @correct = false
-    @time.start_time
+    @game.start_time
     print "> "
     while !@correct
       game_flow_correct_colors

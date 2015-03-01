@@ -31,9 +31,9 @@ module MasterMindPrinter
     to end the game. What's your guess?"
   end                                    
 
-  def self.user_guesses_correctly
-    puts "Congratulations! You guess the sequence correct_sequence 
-    in user_guess.count guesses over elapsed_time."
+  def self.user_guesses_correctly(user_guess, correct_sequence, elapsed_time)
+    puts "Congratulations! You guessed the sequence #{correct_sequence} 
+    in #{user_guess} guesses over #{elapsed_time}."
   end                                                      
 
   def self.user_guesses_too_short
