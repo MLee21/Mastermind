@@ -42,9 +42,9 @@ module MasterMindPrinter
   end                             
 
   def self.user_has_a_few_elements_correct
-    puts "user_guess has correct_element_guess.count elements
-    with correct_position_guess.count positions. You've
-    taken guess.count guess."
+    puts "#{@user_guess} has #{@color_count} elements
+    with #{@position_count} positions. You've
+    taken #{@user_guesses} guess."
   end                                                                                                                             
   #clean this up
   def self.instructions
@@ -59,7 +59,11 @@ module MasterMindPrinter
 
   def self.user_quit
     puts "Goodbye"
-  end   
+  end  
+
+  def self.user_quits_in_middle_of_game
+    puts "Thank you for playing! Goodbye!"
+  end 
               
 
 end

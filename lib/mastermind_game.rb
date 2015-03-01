@@ -1,9 +1,11 @@
 class MasterMindGame
 
-  attr_reader :colors_to_guess  
+  attr_accessor :colors_to_guess, :counts, :user_guesses
 
   def initialize(colors_to_guess=secret_colors_generator)
-    @colors_to_guess = colors_to_guess                     
+    @colors_to_guess = colors_to_guess   
+    @counts = Hash.new 0 
+    @user_guesses = 0               
   end                                                      
 
   def secret_colors_generator
@@ -14,17 +16,21 @@ class MasterMindGame
     puts @colors_to_guess
   end
 
-  #   def user_quits_at_any_point
-
-  #   end
 
 end  
 
 class GuessingTimer
 
+attr_accessor :start_time, :end_time
 
+def initialize
+  @start_time = Time.now
+  @end_time = Time.now
+end
 
-
+def calculate_time_until_user_guesses_correctly
+  time_elapsed = @end_time - @start_time 
+end
 
 
 
