@@ -1,3 +1,6 @@
+require_relative 'mastermind_user_input'
+require_relative 'mastermind_game'
+
 module MasterMindPrinter
 
   def self.file=(file)
@@ -41,11 +44,10 @@ module MasterMindPrinter
     puts "It's too long!"
   end                             
 
-  def self.user_has_a_few_elements_correct
-    puts "#{@user_guess} has #{@color_count} elements
-    with #{@position_count} positions. You've
-    taken #{@user_guesses} guess."
-  end                                                                                                                             
+  def self.correct_number_of_elements_and_positions(guess, number_of_correct_colors, number_of_correct_positions, number_of_guesses)
+    "'#{guess}'has #{number_of_correct_colors} of the correct elements with #{number_of_correct_positions} in the correct positions. \nYou've taken #{number_of_guesses} guess(es)."
+  end
+
   #clean this up
   def self.instructions
     puts '"You will have a choice of choosing a combination between four colors: (r)ed, (g)reen, (b)lue, (y)ellow." 

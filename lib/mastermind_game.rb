@@ -1,11 +1,13 @@
 class MasterMindGame
 
-  attr_accessor :colors_to_guess, :counts, :user_guesses
+  attr_accessor :colors_to_guess, :counts, :user_guesses, :total_colors, :total_positions
 
   def initialize(colors_to_guess=secret_colors_generator)
-    @colors_to_guess = colors_to_guess   
-    @counts = Hash.new 0 
-    @user_guesses = 0               
+    @colors_to_guess = colors_to_guess
+    @total_colors = total_colors
+    @total_positions = total_positions
+    @user_guesses = 0   
+    @counts = Hash.new 0             
   end                                                      
 
   def secret_colors_generator
@@ -15,8 +17,6 @@ class MasterMindGame
   def cheat
     puts @colors_to_guess
   end
-
-
 end  
 
 class GuessingTimer
