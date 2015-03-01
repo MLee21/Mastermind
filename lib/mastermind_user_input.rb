@@ -11,7 +11,10 @@ class MasterMindUserInput
   def initialize
     @game = MasterMindGame.new 
     @user_guess = user_guess
-    @continue = false
+  end
+
+  def correct?
+    @user_guess == @game.colors_to_guess 
   end
 
   def user_input_upon_start_menu
@@ -23,6 +26,7 @@ class MasterMindUserInput
       case response
       when 'p','play'
         press_play_user_starts_guessing
+        break
       when 'i','instructions'
         MasterMindPrinter.instructions
       when 'q','quit'
@@ -56,17 +60,17 @@ class MasterMindUserInput
 
   # game_flow_transition_some_correct_guesses
   def user_starts_guessing
-    @correct = false
-    @game.start_time
     print "> "
-    while !@correct
-      game_flow_correct_colors
-      game_flow_correct_positions
-      @game.user_guesses += 1 
-      user_has_a_few_elements_correct
-      # end_game_flow
-      @correct = true
-    end
+      if !correct? 
+        @user.guess.each
+        @game.start_time
+        game_flow_correct_colors
+        game_flow_correct_positions 
+        @game.user_guesses += 1 
+        user_has_a_few_elements_correct
+      else correct?
+        end_game_flow
+      end
   end
 
   def game_flow_correct_colors
@@ -79,7 +83,7 @@ class MasterMindUserInput
         color_counts[letter] += 1
       end
     end
-      puts color_counts 
+      color_counts 
       color_counts.each_value {|v| results << v} 
       results 
       @game.total_colors = results.reduce(:+)
@@ -101,14 +105,14 @@ class MasterMindUserInput
         position_counts[x] += 1
       end
     end
-      puts position_counts
+      position_counts
       position_counts.each_value {|v| results << v}
-      puts results
+      results
       @game.total_positions = results.reduce(:+)
   end
 
   def end_game_flow
-    "Congratulations"
+    puts "Congratulations"
   end
 
 end
