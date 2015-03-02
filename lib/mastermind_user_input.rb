@@ -64,31 +64,14 @@ class MasterMindUserInput
     end
   end
 
-  # game_flow_transition_some_correct_guesses
-#   def user_starts_guessing
-#     print "> "
-#     if !correct? 
-#       @user_guess.split.each do |word|
-#         @game.start_time
-#         game_flow_correct_colors
-#         game_flow_correct_positions 
-#         @game.user_guesses += 1 
-#         user_has_a_few_elements_correct
-#       if correct?
-#         end_game_flow
-#       end
-#     end
-#   end
-# end
-
   def game_flow_correct_colors
     results = []
     color_counts = Hash.new 0 
     secret_chars = @game.colors_to_guess.chars
     user_guess_chars = @user_guess.chars
-    user_guess_chars.each do |letter|
-      if secret_chars.include?(letter)
-        color_counts[letter] += 1
+    user_guess_chars.each_with_index.map do |x,i|
+      if secret_chars.include?(x)
+        color_counts[x] += 1
       end
     end
       color_counts 
@@ -98,9 +81,8 @@ class MasterMindUserInput
   end
 
   def user_has_a_few_elements_correct
-    puts "#{@user_guess} has #{@game.total_colors} correct elements
-    with #{@game.total_positions} correct positions. You've
-    taken #{@game.user_guesses} guess."
+    puts "'#{@user_guess.upcase}' has #{@game.total_colors} correct element(s)\nwith #{@game.total_positions} correct position(s).
+    You've taken #{@game.user_guesses} guess(es)."
   end   
 
   def game_flow_correct_positions
@@ -120,7 +102,7 @@ class MasterMindUserInput
   end
 
   def end_game_flow
-    puts "Congratulations"
+    puts "Congratulations! You guessed the sequence '#{@game.colors_to_guess.upcase}' in #{@game.user_guesses} guess(es) over #{@game.elapsed_time}."
   end
 
 end

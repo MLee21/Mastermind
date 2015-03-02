@@ -26,9 +26,7 @@ module MasterMindPrinter
   end                                                               
 
    def self.user_picks_p
-    puts "I have generated a beginner sequence with four elements
-    made up of: (r)ed, (g)reen, (b)lue, and (y)ellow. \n Use (q)uit at any time
-    to end the game. What's your guess?"
+    puts "I have generated a beginner sequence with four elements made up of:\n(r)ed, (g)reen, (b)lue, and (y)ellow.\nUse (q)uit at any time to end the game.\nWhat's your guess?"
   end                                    
 
   def self.user_guesses_correctly(user_guess, correct_sequence, elapsed_time)
@@ -45,19 +43,19 @@ module MasterMindPrinter
   end                             
 
   def self.correct_number_of_elements_and_positions(guess, number_of_correct_colors, number_of_correct_positions, number_of_guesses)
-    "'#{guess}'has #{number_of_correct_colors} of the correct elements with #{number_of_correct_positions} in the correct positions. \nYou've taken #{number_of_guesses} guess(es)."
+    "'#{guess}'has #{number_of_correct_colors} of the correct elements with #{number_of_correct_positions} in the correct positions.\nYou've taken #{number_of_guesses} guess(es)."
   end
 
   #clean this up
   def self.instructions
-    puts '"You will have a choice of choosing a combination between four colors: (r)ed, (g)reen, (b)lue, (y)ellow." 
-    "You may choose a combination containing anything from four different colors or four of the same color."
-    "To create your guess, input a four letter combination. Example: rrby. Keep guessing until you have figured out the combination!"'    
+    puts "You will have a choice of choosing a combination between four colors:\n(r)ed, (g)reen, (b)lue, (y)ellow. 
+    \nYou may choose a combination containing anything from four different colors\nor four of the same color.
+    \nTo create your guess, input a four letter combination.\nExample: RRBY. Keep guessing until you have figured out the combination!\n\n"   
   end                                                                                                                                   
 
   def self.user_return_to_main_menu
     puts "Would you like to return to the main menu? (y) or (n)?"
-  end                                                              # => nil
+  end                                                            
 
   def self.user_quit
     puts "Goodbye"

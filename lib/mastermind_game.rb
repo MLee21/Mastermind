@@ -16,10 +16,11 @@ class MasterMindGame
   end                                            
 
   def cheat
-    puts @colors_to_guess
+    puts @colors_to_guess.upcase
   end
 
-  def calculate_time_until_user_guesses_correctly
-    time_elapsed = @end_time - @start_time 
+  def elapsed_time
+    @end_time - @start_time 
   end
 end
+  
