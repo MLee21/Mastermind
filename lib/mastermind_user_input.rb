@@ -48,9 +48,9 @@ class MasterMindUserInput
       elsif (@user_guess == 'c') || (@user_guess == 'cheat')
         @game.cheat
       elsif @user_guess.length < 4
-        MasterMindPrinter.user_guesses_too_short
+        MasterMindPrinter.user_guess_too_short
       elsif @user_guess.length > 4
-        MasterMindPrinter.user_guesses_too_long
+        MasterMindPrinter.user_guess_too_long
       elsif (@user_guess.length == 4) && !correct? 
         @game.start_time
         game_flow_correct_colors
@@ -59,6 +59,7 @@ class MasterMindUserInput
         user_has_a_few_elements_correct 
       else correct?
         end_game_flow
+        @game.end_time
         break
       end
     end
@@ -67,17 +68,17 @@ class MasterMindUserInput
   def game_flow_correct_colors
     results = []
     color_counts = Hash.new 0 
-    secret_chars = @game.colors_to_guess.chars
+    secret_chars = @game.colors_to_guess.chars.uniq
     user_guess_chars = @user_guess.chars
     user_guess_chars.each_with_index.map do |x,i|
       if secret_chars.include?(x)
-        color_counts[x] += 1
+      color_counts[x] += 1
       end
     end
       color_counts 
       color_counts.each_value {|v| results << v} 
       results 
-      @game.total_colors = results.reduce(:+)
+      @game.total_colors = results.reduce(:+) 
   end
 
   def user_has_a_few_elements_correct

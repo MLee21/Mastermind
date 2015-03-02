@@ -20,7 +20,7 @@ class MasterMindGame
   end
 
   def elapsed_time
-    @end_time - @start_time 
+    (@end_time - @start_time) 
   end
 end
   

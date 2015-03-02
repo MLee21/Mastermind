@@ -34,11 +34,11 @@ module MasterMindPrinter
     in #{user_guess} guesses over #{elapsed_time}."
   end                                                      
 
-  def self.user_guesses_too_short
+  def self.user_guess_too_short
     puts "It's too short!"
   end                             
 
-  def self.user_guesses_too_long
+  def self.user_guess_too_long
     puts "It's too long!"
   end                             
 
@@ -48,7 +48,8 @@ module MasterMindPrinter
 
   #clean this up
   def self.instructions
-    puts "You will have a choice of choosing a combination between four colors:\n(r)ed, (g)reen, (b)lue, (y)ellow. 
+    puts "Instructions:
+    \nYou will have a choice of choosing a combination between four colors:\n(r)ed, (g)reen, (b)lue, (y)ellow. 
     \nYou may choose a combination containing anything from four different colors\nor four of the same color.
     \nTo create your guess, input a four letter combination.\nExample: RRBY. Keep guessing until you have figured out the combination!\n\n"   
   end                                                                                                                                   

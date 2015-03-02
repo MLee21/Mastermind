@@ -1,7 +1,6 @@
 require_relative 'mastermind_user_input'
 
-
-#RUNNER
+###RUNNER
 
 MasterMindPrinter.file = $stdout
 user_input = MasterMindUserInput.new
