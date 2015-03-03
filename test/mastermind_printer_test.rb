@@ -25,26 +25,33 @@ class MasterMindPrinterTest < Minitest::Test
     MasterMindPrinter.file = $stdout            
     MasterMindPrinter.user_picks_p
     assert fake_stdout.string.kind_of?(String)
-  end        
+  end       
 
-  def test_it_tells_user_if_guesses_too_short_of_characters
+  def test_when_user_guesses_correctly
     fake_stdout = StringIO.new              
     MasterMindPrinter.file = $stdout            
-    MasterMindPrinter.user_guesses_too_short
+    MasterMindPrinter.user_guesses_correctly("ggrb", 4, "1 minute, 40 seconds")
+    assert fake_stdout.string.kind_of?(String)
+  end 
+
+  def test_it_tells_user_if_guess_too_short_of_characters
+    fake_stdout = StringIO.new              
+    MasterMindPrinter.file = $stdout            
+    MasterMindPrinter.user_guess_too_short
     assert fake_stdout.string.kind_of?(String)
   end
 
-  def test_it_tells_user_if_guesses_too_long_of_characters
+  def test_it_tells_user_if_guess_too_long_of_characters
     fake_stdout = StringIO.new              
     MasterMindPrinter.file = $stdout            
-    MasterMindPrinter.user_guesses_too_long
+    MasterMindPrinter.user_guess_too_long
     assert fake_stdout.string.kind_of?(String)
   end
 
-  def test_it_will_tell_user_if_a_few_elements_are_correct
+  def test_it_tells_user_correct_number_of_elements_and_positions
     fake_stdout = StringIO.new              
     MasterMindPrinter.file = $stdout            
-    MasterMindPrinter.user_has_a_few_elements_correct
+    MasterMindPrinter.correct_number_of_elements_and_positions("ggrb", 3, 2, 3)
     assert fake_stdout.string.kind_of?(String)
   end
 
